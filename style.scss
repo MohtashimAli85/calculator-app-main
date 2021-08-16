@@ -1,0 +1,22 @@
+// theme 2
+$mainBg2:hsl(0, 0%, 90%);
+$toggleKeyPadBg2:hsl(0, 5%, 81%);
+$screenBg2:hsl(0, 0%, 93%);
+$keyBg2:hsl(185, 42%, 37%);
+$keyShadow2:rgb(27, 95, 101);
+$orangeKeyBgToggle2:hsl(25, 98%, 40%);
+$orangeKeyShadow:hsl(25, 99%, 27%);
+$lightKeyBg2:hsl(45, 7%, 89%);
+$darkKeyShadow2:hsl(35, 11%, 61%);
+$textColor2:hsl(60, 10%, 19%);
+$white:#ffffff;
+
+.light{
+    header{
+        color:$white;
+    }
+    .btnContainer,
+.keyPad {
+  background-color: $toggleKeyPadBg2;
+}
+}
