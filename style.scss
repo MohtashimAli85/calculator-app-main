@@ -257,3 +257,11 @@ $yellow:hsl(52, 100%, 62%);
         }
 
 }
+
+@media  (min-width:768px) {
+  body{
+    height: unset;
+    margin-top: 5rem;
+  }
+  
+}
