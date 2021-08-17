@@ -20,7 +20,7 @@ btn.forEach(
             } else if (x.target.textContent === '.') {
                 let value = "";
                 value = screen.innerHTML;
-                if (!value.endsWith('.')) {
+                if (!value.includes('.')) {
                     screen.innerHTML += x.target.textContent;
                 }
             } else if (x.target.textContent === 'DEL') {
@@ -45,6 +45,10 @@ btn.forEach(
                     a = 0; b = 0; o = '';
                 }
             } else if (x.target.textContent === '0') {
+                if (screen.innerHTML.length >= 12) {
+                    alert('No more numbers');
+                    return;
+                }
                 screen.innerHTML += 0;
             }
 
