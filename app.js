@@ -84,7 +84,7 @@ window.addEventListener('keypress', e => {
 
 
 const body = document.querySelector('body');
-const tgBtn = document.querySelector('.tgBtn');
+const tgBtn = document.querySelector('.tgBtndiv');
 // Listening to toggle button
 tgBtn.addEventListener('click', e => {
     if (body.classList.contains('light')) {
