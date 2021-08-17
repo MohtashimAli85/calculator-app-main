@@ -7,11 +7,15 @@ let a = 0, b = 0, o;
 btn.forEach(
     e => {
         e.addEventListener('click', x => {
-
-            if (screen.innerHTML.length >= 12) {
-                alert('No more numbers');
-                return;
-            } else if (Number(x.target.textContent)) {
+            e.classList.add('pressedBtn');
+            setTimeout(() => {
+                e.classList.remove('pressedBtn');
+            }, 90)
+            if (Number(x.target.textContent)) {
+                if (screen.innerHTML.length >= 12) {
+                    alert('No more numbers');
+                    return;
+                }
                 screen.innerHTML += x.target.textContent;
             } else if (x.target.textContent === '.') {
                 let value = "";
@@ -51,8 +55,9 @@ btn.forEach(
                     screen.innerHTML = '';
                     o = e;
                 }
-            })
+            });
         });
+
     });
 // Listening to KeyPress 
 window.addEventListener('keypress', e => {
