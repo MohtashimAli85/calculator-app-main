@@ -12,7 +12,7 @@ btn.forEach(
                 e.classList.remove('pressedBtn');
             }, 90)
             if (Number(x.target.textContent)) {
-                if (screen.innerHTML.length >= 12) {
+                if (screen.innerHTML.length >= 11) {
                     alert('No more numbers');
                     return;
                 }
@@ -21,7 +21,12 @@ btn.forEach(
                 let value = "";
                 value = screen.innerHTML;
                 if (!value.includes('.')) {
-                    screen.innerHTML += x.target.textContent;
+                    if (screen.innerHTML.length >= 11) {
+                        alert('No more');
+                        return;
+                    } else {
+                        screen.innerHTML += x.target.textContent;
+                    }
                 }
             } else if (x.target.textContent === 'DEL') {
                 let value = screen.innerHTML;
@@ -45,7 +50,7 @@ btn.forEach(
                     a = 0; b = 0; o = '';
                 }
             } else if (x.target.textContent === '0') {
-                if (screen.innerHTML.length >= 12) {
+                if (screen.innerHTML.length >= 11) {
                     alert('No more numbers');
                     return;
                 }
