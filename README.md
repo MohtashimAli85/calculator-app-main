@@ -5,7 +5,8 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 ## Table of contents
 
 - [Screenshot](#screenshot)
-  - [Desktop View](#Desktop-View) -[Mobile View](#Mobile-View)
+  - [Desktop View](#Desktop-View)
+  - [Mobile View](#Mobile-View)
 - [Links](#links)
 - [Built with](#built-with)
 - [Author](#author)
