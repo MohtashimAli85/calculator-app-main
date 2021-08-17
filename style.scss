@@ -1,41 +1,61 @@
+// theme 1
+/* Backgrounds */
+$mainBg: hsl(222, 26%, 31%);
+$toggleKeyPadBg: hsl(223, 31%, 20%);
+$screenBg: hsl(224, 36%, 15%);
+/* keys */
+$keyBg: hsl(225, 21%, 49%);
+$keyShadow: #404e72;
+
+$redKeyBg: hsl(6, 63%, 50%);
+$redKeyShadow: #93261a;
+
+$orangeKeyBg: hsl(30, 25%, 89%);
+$orangeKeyShadow: #b4a597;
+
+/* Text */
+$blue: hsl(221, 14%, 31%);
+$white: #ffffff;
+
 // theme 2
 $mainBg2:hsl(0, 0%, 90%);
+
 $toggleKeyPadBg2:hsl(0, 5%, 81%);
 $screenBg2:hsl(0, 0%, 93%);
+
 $keyBg2:hsl(185, 42%, 37%);
 $keyShadow2:rgb(27, 95, 101);
+
 $orangeKeyBgToggle2:hsl(25, 98%, 40%);
 $orangeKeyShadow:rgb(137, 57, 1);
+
 $lightKeyBg2:hsl(45, 7%, 89%);
 $darkKeyShadow2:rgb(166, 157, 145);
+
 $textColor2:hsl(60, 10%, 19%);
 
+// theme 3
+$mainBg3: hsl(268, 75%, 9%);
 
+$toggleKeyPadBg3:hsl(268, 71%, 12%);
+$screenBg3:hsl(268, 71%, 12%);
 
+$keyBg3:hsl(281, 89%, 26%);
+$keyShadow3: rgb(188, 21, 244);
 
-    /* Theme 1 */
-    /* Backgrounds */
-    $mainBg: hsl(222, 26%, 31%);
-    $toggleKeyPadBg: hsl(223, 31%, 20%);
-    $screenBg: hsl(224, 36%, 15%);
-    /* keys */
-    $keyBg: hsl(225, 21%, 49%);
-    $keyShadow: #404e72;
-  
-    $redKeyBg: hsl(6, 63%, 50%);
-    $redKeyShadow: #93261a;
-  
-    $orangeKeyBg: hsl(30, 25%, 89%);
-    $orangeKeyShadow: #b4a597;
-  
-    /* Text */
-    $blue: hsl(221, 14%, 31%);
-    $white: #ffffff;
+$cyanKeyBgToggle3:hsl(176, 100%, 44%);
+$cyanKeyShadow:rgb(108, 249, 242);
+
+$darkKeyBg3:hsl(268, 47%, 21%);
+$darkKeyShadow3:rgb(135, 28, 156);
+$textColor3:hsl(290, 70%, 36%);
+$yellow:hsl(52, 100%, 62%);
   
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
   }
   
   body {
@@ -85,11 +105,11 @@ $textColor2:hsl(60, 10%, 19%);
     background-color: $toggleKeyPadBg;
   }
   .btnContainer {
-    padding: 4px 7px;
+    padding: 5px 7px;
     border-radius: 14px;
     min-width: 74px;
     position: relative;
-    height: 26px;
+    height: 30px;
   }
   .tgBtn {
     width: 17px;
@@ -97,6 +117,8 @@ $textColor2:hsl(60, 10%, 19%);
     border-radius: 100%;
     background-color: $redKeyBg;
     position: absolute;
+    left:8.5px;
+    top:7.5px;
   }
   .screen {
     min-height: 95px;
@@ -146,7 +168,7 @@ $textColor2:hsl(60, 10%, 19%);
   .btnReset {
     background-color: $keyBg;
     color: $white;
-    box-shadow: 0px 5px 0px 0px rgba(64, 78, 114, 0.55);
+    box-shadow: 0px 5px 0px 0px rgba(64, 78, 114,1);
   }
   
   .btnEqual {
@@ -175,6 +197,7 @@ $textColor2:hsl(60, 10%, 19%);
     }
     .tgBtn{
         background-color: $orangeKeyBgToggle2;
+        left: 24.5px;
     }
     .screen{
         background-color: $screenBg2;
@@ -187,10 +210,46 @@ $textColor2:hsl(60, 10%, 19%);
     .btnDel,
     .btnReset{
         background-color: $keyBg2;
-        box-shadow: 0px 5px 0px 0px rgb(27, 95, 101,0.55);
+        box-shadow: 0px 5px 0px 0px rgb(27, 95, 101,1);
     }
     .btnEqual{
         background-color: $orangeKeyBgToggle2;
         box-shadow: 0px 5px 0px 0px rgb(137, 57, 1,1);
     }
+}
+.violet{
+    
+        background-color: $mainBg3;
+    
+        header{
+            color:$yellow;
+        }
+        .btnContainer,
+        .keyPad {
+            background-color: $toggleKeyPadBg3;
+        }
+        .tgBtn{
+            background-color: $cyanKeyBgToggle3;
+            left: 44.5px;
+        }
+        .screen{
+            background-color: $screenBg3;
+        }
+        .btn{
+            color: $yellow;
+            background-color: $darkKeyBg3;
+            box-shadow: 0px 5px 0px 0px rgb(135, 28, 156,1);
+        }
+        .btnDel,
+        .btnReset{
+            color:$white;
+            background-color: $keyBg3;
+            box-shadow: 0px 5px 0px 0px rgb(188, 21, 244,1);
+        }
+        .btnEqual{
+            color:$textColor3;
+            background-color: $cyanKeyBgToggle3;
+            box-shadow: 0px 5px 0px 0px rgb(108, 249, 242,1);
+        }
+
 }
