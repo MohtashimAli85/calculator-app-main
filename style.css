@@ -127,6 +127,11 @@ header {
   align-items: center;
   box-shadow: 0px 5px 0px 0px #b4a597;
   /* max-height: 58px; */
+  transition: transform 0.5s ease-out;
+}
+
+.pressedBtn {
+  transform: scale(1.1);
 }
 
 .btnDel,
