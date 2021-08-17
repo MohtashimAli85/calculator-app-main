@@ -7,11 +7,18 @@ let a = 0, b = 0, o;
 btn.forEach(
     e => {
         e.addEventListener('click', x => {
+
             if (screen.innerHTML.length >= 12) {
                 alert('No more numbers');
                 return;
             } else if (Number(x.target.textContent)) {
                 screen.innerHTML += x.target.textContent;
+            } else if (x.target.textContent === '.') {
+                let value = "";
+                value = screen.innerHTML;
+                if (!value.endsWith('.')) {
+                    screen.innerHTML += x.target.textContent;
+                }
             } else if (x.target.textContent === 'DEL') {
                 let value = screen.innerHTML;
                 value = value.substring(0, value.length - 1);
@@ -26,13 +33,15 @@ btn.forEach(
                         screen.innerHTML = a + b;
                     } else if (o === '-') {
                         screen.innerHTML = a - b;
-                    } else if (o === '*') {
+                    } else if (o === 'x') {
                         screen.innerHTML = a * b;
                     } else if (o === '/') {
                         screen.innerHTML = a / b;
                     }
                     a = 0; b = 0; o = '';
                 }
+            } else if (x.target.textContent === '0') {
+                screen.innerHTML += 0;
             }
 
 
