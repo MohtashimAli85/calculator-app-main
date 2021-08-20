@@ -2,7 +2,7 @@
 const btn = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen');
 const operators = ['+', '-', 'x', '/'];
-let a = 0, b = 0, o;
+let a = null, b = null, o, c = '';
 let arr;
 // Listening to Buttons CLick
 btn.forEach(
@@ -16,6 +16,10 @@ btn.forEach(
                 if (screen.innerHTML.length >= 11) {
                     alert('No more numbers');
                     return;
+                }
+                if (a != null) {
+                    console.log('here at c')
+                    c += x.target.textContent;
                 }
                 screen.innerHTML += x.target.textContent;
             } else if (x.target.textContent === '.') {
@@ -35,6 +39,7 @@ btn.forEach(
                 screen.innerHTML = value;
             } else if (x.target.textContent === 'RESET') {
                 screen.innerHTML = '';
+                a = null; b = null;
             } else if (x.target.innerHTML === '=') {
                 if (a != 0) {
                     b = screen.innerHTML;
@@ -50,7 +55,7 @@ btn.forEach(
                     } else if (o === '/') {
                         screen.innerHTML = a / b;
                     }
-                    a = 0; b = 0; o = '';
+                    a = Number(screen.innerHTML); b = null; o = ''; c = '';
                 }
             } else if (x.target.textContent === '0') {
                 if (screen.innerHTML.length >= 11) {
@@ -63,9 +68,32 @@ btn.forEach(
 
             operators.forEach(e => {
                 if (e === x.target.textContent) {
-                    a = Number(screen.innerHTML);
-                    screen.innerHTML = a + e;
-                    o = e;
+
+                    if (a === null) {
+                        console.log('here 70' + b + c);
+                        a = Number(screen.innerHTML);
+                        screen.innerHTML = a + e;
+                        o = e;
+                    }
+                    if (a != null) {
+                        screen.innerHTML = a + e;
+                        o = e;
+                    }
+                    if (c != '') {
+                        console.log('here 79');
+
+                        b = Number(c);
+                        if (o === '+') {
+                            screen.innerHTML = a + b;
+                        } else if (o === '-') {
+                            screen.innerHTML = a - b;
+                        } else if (o === 'x') {
+                            screen.innerHTML = a * b;
+                        } else if (o === '/') {
+                            screen.innerHTML = a / b;
+                        }
+                        a = null; b = null; o = '', c = '';
+                    }
                 }
             });
         });
