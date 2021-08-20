@@ -75,13 +75,13 @@ btn.forEach(
                         screen.innerHTML = a + e;
                         o = e;
                     }
-                    if (a != null) {
+                    if (a != null && c === '') {
                         screen.innerHTML = a + e;
                         o = e;
                     }
                     if (c != '') {
                         console.log('here 79');
-
+                        console.log(o);
                         b = Number(c);
                         if (o === '+') {
                             screen.innerHTML = a + b;
