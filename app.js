@@ -3,6 +3,7 @@ const btn = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen');
 const operators = ['+', '-', 'x', '/'];
 let a = 0, b = 0, o;
+let arr;
 // Listening to Buttons CLick
 btn.forEach(
     e => {
@@ -36,8 +37,10 @@ btn.forEach(
                 screen.innerHTML = '';
             } else if (x.target.innerHTML === '=') {
                 if (a != 0) {
-                    b = Number(screen.innerHTML);
-                    screen.innerHTML = '';
+                    b = screen.innerHTML;
+                    arr = b.split(o);
+                    b = Number(arr[arr.length - 1]);
+                    screen.innerHTML += b;
                     if (o === '+') {
                         screen.innerHTML = a + b;
                     } else if (o === '-') {
@@ -61,7 +64,7 @@ btn.forEach(
             operators.forEach(e => {
                 if (e === x.target.textContent) {
                     a = Number(screen.innerHTML);
-                    screen.innerHTML = '';
+                    screen.innerHTML = a + e;
                     o = e;
                 }
             });
