@@ -126,7 +126,7 @@ header {
   justify-content: center;
   align-items: center;
   box-shadow: 0px 5px 0px 0px #b4a597;
-  /* max-height: 58px; */
+  height: 77px;
   transition: transform 0.5s ease-out;
 }
 
@@ -139,6 +139,14 @@ header {
   background-color: #637097;
   color: #ffffff;
   box-shadow: 0px 5px 0px 0px #404e72;
+}
+
+.btn:focus {
+  border: 5px dashed #444b5a;
+}
+
+.btnDel:focus, btnReset:focus {
+  border: 5px dashed #ffffff;
 }
 
 .btnEqual {
@@ -154,6 +162,14 @@ header {
 
 .btnDel {
   font-size: 1.1rem;
+}
+
+.btn:focus {
+  border: 5px dashed #444b5a;
+}
+
+.btnDel:focus, .btnReset:focus, .btnEqual:focus {
+  border: 5px dashed #ffffff;
 }
 
 .light {
@@ -186,6 +202,12 @@ header {
 .light .btnEqual {
   background-color: #ca5502;
   box-shadow: 0px 5px 0px 0px #893901;
+}
+.light .btn:focus {
+  border: 5px dashed #35352c;
+}
+.light .btnDel:focus, .light .btnReset:focus, .light .btnEqual:focus {
+  border: 5px dashed #ffffff;
 }
 
 .violet {
@@ -220,6 +242,15 @@ header {
   color: #871c9c;
   background-color: #00e0d1;
   box-shadow: 0px 5px 0px 0px #6cf9f2;
+}
+.violet .btn:focus {
+  border: 5px dashed #ffe53d;
+}
+.violet .btnDel:focus, .violet .btnReset:focus {
+  border: 5px dashed #ffffff;
+}
+.violet .btnEqual:focus {
+  border: 5px dashed #871c9c;
 }
 
 @media (min-width: 768px) {
