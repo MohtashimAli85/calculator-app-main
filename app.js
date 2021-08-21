@@ -2,7 +2,7 @@
 const btn = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen');
 const operators = ['+', '-', 'x', '/'];
-let a = null, b = null, o, c = '';
+let a = null, b = null,result=null, newOperator,currentOperator = [], c = '';
 let arr;
 // Listening to Buttons CLick
 btn.forEach(
@@ -42,12 +42,18 @@ btn.forEach(
                 a = null; b = null;
             } else if (x.target.innerHTML === '=') {
                 if (a != 0) {
+                    console.log('here 45')
+                    if(b === null){
+                        console.log('here 47')
                     b = screen.innerHTML;
                     arr = b.split(o);
                     b = Number(arr[arr.length - 1]);
-                    screen.innerHTML += b;
+                    console.log(a+""+b);
+                    console.log(o);
+                    }
                     if (o === '+') {
-                        screen.innerHTML = a + b;
+                        result = a+b;
+                        screen.innerHTML = result;
                     } else if (o === '-') {
                         screen.innerHTML = a - b;
                     } else if (o === 'x') {
@@ -55,7 +61,7 @@ btn.forEach(
                     } else if (o === '/') {
                         screen.innerHTML = a / b;
                     }
-                    a = Number(screen.innerHTML); b = null; o = ''; c = '';
+                    a = result; b = null; o = ''; c = '';
                 }
             } else if (x.target.textContent === '0') {
                 if (screen.innerHTML.length >= 11) {
@@ -68,31 +74,46 @@ btn.forEach(
 
             operators.forEach(e => {
                 if (e === x.target.textContent) {
-
+                    newOperator = e;
                     if (a === null) {
-                        console.log('here 70' + b + c);
+                       
                         a = Number(screen.innerHTML);
                         screen.innerHTML = a + e;
-                        o = e;
+                        
                     }
                     if (a != null && c === '') {
                         screen.innerHTML = a + e;
-                        o = e;
+                        
                     }
+                
                     if (c != '') {
-                        console.log('here 79');
-                        console.log(o);
-                        b = Number(c);
-                        if (o === '+') {
-                            screen.innerHTML = a + b;
-                        } else if (o === '-') {
+                        
+                        currentOperator.push(newOperator);
+                        if(currentOperator.length >=3){
+                            console.log('here at length')
+                            currentOperator.shift();
+                        }
+                        b = screen.innerHTML;
+                        arr = b.split(currentOperator[0]);
+                        console.log(currentOperator[0]+ ' here at CO');
+                        b = Number(arr[arr.length - 1]);
+                        console.log(b+' here at b');
+                        if (currentOperator[0] === '+') {
+                            
+                            result = a+b;
+                            console.log(result+' here at result');
+                            screen.innerHTML = result+newOperator;
+                            
+                            
+                        } else if (currentOperator[0] === '-') {
                             screen.innerHTML = a - b;
-                        } else if (o === 'x') {
+                        } else if (currentOperator[0] === 'x') {
                             screen.innerHTML = a * b;
-                        } else if (o === '/') {
+                        } else if (currentOperator[0] === '/') {
                             screen.innerHTML = a / b;
                         }
-                        a = null; b = null; o = '', c = '';
+                        a = result; b = null;  c = '';
+                        console.log(a+' here new val');
                     }
                 }
             });
