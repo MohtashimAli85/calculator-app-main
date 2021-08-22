@@ -69,3 +69,21 @@ btn.forEach(
         });
     }
 );
+
+// Listening to KeyPress 
+window.addEventListener('keypress', e => {
+    if (screen.innerHTML.length >= 12) {
+        alert('No more numbers');
+        return;
+    } else if (Number(e.key)) {
+        screen.innerHTML += e.key;
+    }
+});
+
+window.addEventListener('keypress', e => {
+    if (e.key === 'd') {
+        let value = screen.innerHTML;
+        value = value.substring(0, value.length - 1);
+        screen.innerHTML = value;
+    }
+});
