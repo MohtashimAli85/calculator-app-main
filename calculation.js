@@ -1,7 +1,7 @@
 const btn = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen');
 const validOperators = ['+', '-', 'x', '/','*'];
-let   result, input='';
+let   result, input='', isProper = true;
 
 btn.forEach(
     e =>{
@@ -45,24 +45,34 @@ btn.forEach(
             }else if(x.target.textContent === '='){
                    input = screen.innerHTML;
                    validOperators.forEach(o =>{
-                       if(input.endsWith(o)){
-                           alert('You dumb shit Give Proper Input');
-                           return;
-                       }
-                   });
-                   result = eval(input);
-                   screen.innerHTML = result;
-
+                    if(input.endsWith(o)){
+                        console.log(input.includes(o));
+                        alert('Kindly give proper input ^-^.');
+                        isProper = false;
+                    }
+                    });
+                    if(isProper){
+                    result = eval(input);
+                    screen.innerHTML = result;
+                    }
                     
             }
 
 
             validOperators.forEach(o =>{
-                if(o === x.target.textContent){
-                    if(o === 'x'){
-                        screen.innerHTML +='*';
-                    }else{
-                        screen.innerHTML +=o;
+                input = screen.innerHTML;
+                if(input.endsWith(o)){
+                    isProper = false;
+                }else{
+                    isProper = true;
+                }
+                if(isProper){
+                    if(o === x.target.textContent){
+                        if(o === 'x'){
+                            screen.innerHTML +='*';
+                        }else{
+                            screen.innerHTML +=o;
+                        }
                     }
                 }
             });
@@ -71,19 +81,47 @@ btn.forEach(
 );
 
 // Listening to KeyPress 
-window.addEventListener('keypress', e => {
+window.addEventListener('keydown', e => {
     if (screen.innerHTML.length >= 12) {
         alert('No more numbers');
         return;
     } else if (Number(e.key)) {
         screen.innerHTML += e.key;
+    }else if (e.key === 'Enter') {
+        input = screen.innerHTML;
+        validOperators.forEach(o =>{
+            if(input.endsWith(o)){
+                console.log(input.includes(o));
+                alert('Kindly give proper input ^-^.');
+                isProper = false;
+            }else{
+                isProper = true;
+            }
+
+        });
+        if(isProper){
+         result = eval(input);
+         screen.innerHTML = result;
+        }            
+    }else if(e.key === 'Backspace') {
+         input = screen.innerHTML;
+        input = input.substring(0, input.length - 1);
+        screen.innerHTML = input;
+    }else{
+        console.log('*'===e.key);
     }
+    validOperators.forEach(o =>{
+        input = screen.innerHTML;
+        if(input.endsWith(o)){
+            isProper = false;
+        }else{
+            isProper = true;
+        }
+        if(isProper){
+            if(o === e.key){
+                    screen.innerHTML +=o;
+            }
+        }
+    });
 });
 
-window.addEventListener('keypress', e => {
-    if (e.key === 'd') {
-        let value = screen.innerHTML;
-        value = value.substring(0, value.length - 1);
-        screen.innerHTML = value;
-    }
-});
