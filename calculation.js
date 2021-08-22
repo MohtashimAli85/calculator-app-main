@@ -1,7 +1,7 @@
 const btn = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen');
-const validOperators = ['+', '-', 'x', '/'];
-let   numbers = [], operators = [], result, input;
+const validOperators = ['+', '-', 'x', '/','*'];
+let   result, input='';
 
 btn.forEach(
     e =>{
@@ -17,7 +17,7 @@ btn.forEach(
                     return;
                 }
                 screen.innerHTML += x.target.textContent;
-                input+= x.target.textContent; 
+                
             } else if (x.target.textContent === '0') {
                 if (screen.innerHTML.length >= 11) {
                     alert('No more numbers');
@@ -43,18 +43,29 @@ btn.forEach(
                 screen.innerHTML = '';
                 
             }else if(x.target.textContent === '='){
-                    console.log(numbers);
-                    console.log(operators);
+                   input = screen.innerHTML;
+                   validOperators.forEach(o =>{
+                       if(input.endsWith(o)){
+                           alert('You dumb shit Give Proper Input');
+                           return;
+                       }
+                   });
+                   result = eval(input);
+                   screen.innerHTML = result;
+
+                    
             }
 
 
             validOperators.forEach(o =>{
                 if(o === x.target.textContent){
-                    numbers.push(Numbe(input));
-                    operators.push(o);
-                    screen.innerHTML +=o;
+                    if(o === 'x'){
+                        screen.innerHTML +='*';
+                    }else{
+                        screen.innerHTML +=o;
+                    }
                 }
-            })
+            });
         });
     }
 );
