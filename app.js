@@ -154,4 +154,4 @@ tgBtn.addEventListener('click', e => {
     } else {
         body.classList.add('light');
     }
-})
+});
