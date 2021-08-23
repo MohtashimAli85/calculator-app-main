@@ -112,8 +112,8 @@ window.addEventListener('keydown', e => {
         screen.innerHTML = input;
     }else if(e.key === '.'){
         if(!number.includes('.')){  
-            screen.innerHTML += x.target.textContent;
-            number += x.target.textContent;
+            screen.innerHTML += e.key;
+            number += e.key;
             }        
     }
     validOperators.forEach(o =>{
