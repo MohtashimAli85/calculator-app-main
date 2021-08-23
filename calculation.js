@@ -2,7 +2,6 @@ const btn = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen');
 const validOperators = ['+', '-', 'x', '/','*'];
 let   result, input='', isProper = true, number='';
-var decimalPoint = true;
 
 btn.forEach(
     e =>{
@@ -19,7 +18,6 @@ btn.forEach(
                 }
                 screen.innerHTML += x.target.textContent;
                 number +=x.target.textContent;
-                console.log(number);
             } else if (x.target.textContent === '0') {
                 if (screen.innerHTML.length >= 11) {
                     alert('No more numbers');
@@ -32,8 +30,6 @@ btn.forEach(
                     return;
                 } 
                 if(!number.includes('.')){  
-                    console.log(number);
-                    console.log(decimalPoint+'here at 35');
                     screen.innerHTML += x.target.textContent;
                     number += x.target.textContent;
                     }        
@@ -43,7 +39,7 @@ btn.forEach(
                 screen.innerHTML = value;
             } else if (x.target.textContent === 'RESET') {
                 screen.innerHTML = '';
-                
+                number = '';
             }else if(x.target.textContent === '='){
                    input = screen.innerHTML;
                    console.log(input);
