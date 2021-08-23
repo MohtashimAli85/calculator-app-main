@@ -71,6 +71,7 @@ header {
   min-width: 74px;
   position: relative;
   height: 30px;
+  cursor: pointer;
 }
 
 .tgBtn {
