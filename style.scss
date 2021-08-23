@@ -282,7 +282,14 @@ $yellow:hsl(52, 100%, 62%);
 @media  (min-width:768px) {
   body{
     height: unset;
-    margin-top: 5rem;
+    margin-top: 3rem;
   }
-  
+  .keyPad{
+    grid-gap:1.63rem;
+    padding: 1.63rem;
+  }
+  .btn{
+    padding: 0.5rem 1rem;
+    height: unset;
+  }
 }
