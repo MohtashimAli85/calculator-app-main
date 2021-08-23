@@ -36,6 +36,7 @@ btn.forEach(
             } else if (x.target.textContent === 'DEL') {
                 let value = screen.innerHTML;
                 value = value.substring(0, value.length - 1);
+                number = value;
                 screen.innerHTML = value;
             } else if (x.target.textContent === 'RESET') {
                 screen.innerHTML = '';
