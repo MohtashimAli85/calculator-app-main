@@ -24,11 +24,7 @@ btn.forEach(
                     return;
                 }
                 screen.innerHTML += 0;
-            } else if (x.target.textContent === '.') {
-                if (screen.innerHTML.length >= 11) {
-                    alert('No more');
-                    return;
-                } 
+            } else if (x.target.textContent === '.') { 
                 if(!number.includes('.')){  
                     screen.innerHTML += x.target.textContent;
                     number += x.target.textContent;
@@ -112,9 +108,13 @@ window.addEventListener('keydown', e => {
     }else if(e.key === 'Backspace') {
          input = screen.innerHTML;
         input = input.substring(0, input.length - 1);
+        number = input;
         screen.innerHTML = input;
-    }else{
-        console.log('*'===e.key);
+    }else if(e.key === '.'){
+        if(!number.includes('.')){  
+            screen.innerHTML += x.target.textContent;
+            number += x.target.textContent;
+            }        
     }
     validOperators.forEach(o =>{
         input = screen.innerHTML;
@@ -125,6 +125,7 @@ window.addEventListener('keydown', e => {
         }
         if(isProper){
             if(o === e.key){
+                number = '';
                     screen.innerHTML +=o;
             }
         }
