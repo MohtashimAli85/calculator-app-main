@@ -50,7 +50,7 @@ btn.forEach(
                     });
                     if(isProper){
                     result = eval(input);
-                    if(NaN === result || result !=Infinity || result != -Infinity){
+                    if(Number(result)){
                     screen.innerHTML = result;
                     }else{
                         screen.innerHTML = 0;
@@ -103,7 +103,12 @@ window.addEventListener('keydown', e => {
         });
         if(isProper){
          result = eval(input);
-         screen.innerHTML = result;
+         if(Number(result)){
+            screen.innerHTML = result;
+         }else{
+            screen.innerHTML = 0;
+         }
+         
         }            
     }else if(e.key === 'Backspace') {
          input = screen.innerHTML;
@@ -115,6 +120,9 @@ window.addEventListener('keydown', e => {
             screen.innerHTML += e.key;
             number += e.key;
             }        
+    }else if(e.key == '0'){
+        screen.innerHTML +=0;
+        
     }
     validOperators.forEach(o =>{
         input = screen.innerHTML;
