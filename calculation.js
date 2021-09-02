@@ -28,7 +28,10 @@ btn.forEach(
                 if(!number.includes('.')){  
                     screen.innerHTML += x.target.textContent;
                     number += x.target.textContent;
-                    }        
+                    
+                    }
+                
+
             } else if (x.target.textContent === 'DEL') {
                 let value = screen.innerHTML;
                 value = value.substring(0, value.length - 1);
@@ -39,7 +42,6 @@ btn.forEach(
                 number = '';
             }else if(x.target.textContent === '='){
                    input = screen.innerHTML;
-                   console.log(input);
                    if(input != undefined && input !=''){
                    validOperators.forEach(o =>{
                     if(input.endsWith(o)){
