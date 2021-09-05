@@ -41,6 +41,7 @@ btn.forEach((e) => {
       number = "";
     } else if (x.target.textContent === "=") {
       input = screen.innerHTML;
+
       if (input != undefined && input != "") {
         validOperators.forEach((o) => {
           if (input.endsWith(o)) {
@@ -52,6 +53,10 @@ btn.forEach((e) => {
         if (isProper) {
           result = eval(input);
           if (Number(result)) {
+            if (String(result).includes(".")) {
+              console.log(result);
+              result = Math.round(result * 100) / 100;
+            }
             screen.innerHTML = result;
           } else {
             screen.innerHTML = 0;
@@ -102,6 +107,9 @@ window.addEventListener("keydown", (e) => {
     if (isProper) {
       result = eval(input);
       if (Number(result)) {
+        if (String(result).includes(".")) {
+          result = Math.round(result * 100) / 100;
+        }
         screen.innerHTML = result;
       } else {
         screen.innerHTML = 0;
