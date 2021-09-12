@@ -3,7 +3,7 @@ const screen = document.querySelector(".screen");
 const validOperators = ["+", "-", "x", "/", "*"];
 let result,
   input = "",
-  isProper = true,
+  isProper = true, hasOperator = false,
   number = "";
 
 btn.forEach((e) => {
@@ -18,7 +18,7 @@ btn.forEach((e) => {
         alert("No more numbers");
         return;
       }
-      if(result !=undefined){
+      if(result !=undefined && !hasOperator){
         screen.innerHTML = "";
       }
       screen.innerHTML += x.target.textContent;
@@ -78,6 +78,7 @@ btn.forEach((e) => {
       if (isProper) {
         if (o === x.target.textContent) {
           number = "";
+          hasOperator = true;
           if (o === "x") {
             screen.innerHTML += "*";
           } else {
