@@ -12,11 +12,14 @@ btn.forEach((e) => {
     setTimeout(() => {
       e.classList.remove("pressedBtn");
     }, 90);
-
+    
     if (Number(x.target.textContent)) {
       if (screen.innerHTML.length >= 11) {
         alert("No more numbers");
         return;
+      }
+      if(result !=undefined){
+        screen.innerHTML = "";
       }
       screen.innerHTML += x.target.textContent;
       number += x.target.textContent;
