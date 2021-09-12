@@ -54,6 +54,7 @@ btn.forEach((e) => {
           }
         });
         if (isProper) {
+          hasOperator = false;
           result = eval(input);
           if (Number(result)) {
             if (String(result).includes(".")) {
