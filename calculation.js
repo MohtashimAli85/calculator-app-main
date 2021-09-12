@@ -3,7 +3,8 @@ const screen = document.querySelector(".screen");
 const validOperators = ["+", "-", "x", "/", "*"];
 let result,
   input = "",
-  isProper = true, hasOperator = false,
+  isProper = true,
+  hasOperator = false,
   number = "";
 
 btn.forEach((e) => {
@@ -12,13 +13,14 @@ btn.forEach((e) => {
     setTimeout(() => {
       e.classList.remove("pressedBtn");
     }, 90);
-    
+
     if (Number(x.target.textContent)) {
+      isProper = true;
       if (screen.innerHTML.length >= 11) {
         alert("No more numbers");
         return;
       }
-      if(result !=undefined && !hasOperator){
+      if (result != undefined && !hasOperator) {
         screen.innerHTML = "";
       }
       screen.innerHTML += x.target.textContent;
@@ -28,6 +30,7 @@ btn.forEach((e) => {
         alert("No more numbers");
         return;
       }
+      isProper = true;
       screen.innerHTML += 0;
     } else if (x.target.textContent === ".") {
       if (!number.includes(".")) {
@@ -48,7 +51,6 @@ btn.forEach((e) => {
       if (input != undefined && input != "") {
         validOperators.forEach((o) => {
           if (input.endsWith(o)) {
-            console.log(input.includes(o));
             alert("Kindly give proper input ^-^.");
             isProper = false;
           }
@@ -58,7 +60,6 @@ btn.forEach((e) => {
           result = eval(input);
           if (Number(result)) {
             if (String(result).includes(".")) {
-              console.log(result);
               result = Math.round(result * 100) / 100;
             }
             screen.innerHTML = result;
@@ -71,16 +72,32 @@ btn.forEach((e) => {
 
     validOperators.forEach((o) => {
       input = screen.innerHTML;
+
       if (input.endsWith(o)) {
         isProper = false;
-      } else {
-        isProper = true;
       }
+    });
+    validOperators.forEach((o) => {
+      input = screen.innerHTML;
       if (isProper) {
-        if (o === x.target.textContent) {
+        if (o == x.target.textContent) {
           number = "";
           hasOperator = true;
-          if (o === "x") {
+          if (o == "x") {
+            screen.innerHTML += "*";
+          } else {
+            screen.innerHTML += o;
+          }
+        }
+      }
+    });
+    validOperators.forEach((o) => {
+      input = screen.innerHTML;
+      if (!isProper) {
+        if (o == x.target.textContent) {
+          input = input.slice(0, -1);
+          screen.innerHTML = input;
+          if (o == "x") {
             screen.innerHTML += "*";
           } else {
             screen.innerHTML += o;
@@ -102,7 +119,6 @@ window.addEventListener("keydown", (e) => {
     input = screen.innerHTML;
     validOperators.forEach((o) => {
       if (input.endsWith(o)) {
-        console.log(input.includes(o));
         alert("Kindly give proper input ^-^.");
         isProper = false;
       } else {
