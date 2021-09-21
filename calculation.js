@@ -32,6 +32,7 @@ btn.forEach((e) => {
       }
       isProper = true;
       screen.innerHTML += 0;
+      number += 0;
     } else if (x.target.textContent === ".") {
       if (!number.includes(".")) {
         screen.innerHTML += x.target.textContent;
@@ -80,7 +81,7 @@ btn.forEach((e) => {
     validOperators.forEach((o) => {
       input = screen.innerHTML;
       if (isProper) {
-        if (o == x.target.textContent) {
+      if (o == x.target.textContent) {
           number = "";
           hasOperator = true;
           if (o == "x") {
