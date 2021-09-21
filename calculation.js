@@ -22,6 +22,7 @@ btn.forEach((e) => {
       }
       if (result != undefined && !hasOperator) {
         screen.innerHTML = "";
+        console.log('hm');
       }
       screen.innerHTML += x.target.textContent;
       number += x.target.textContent;
@@ -46,6 +47,8 @@ btn.forEach((e) => {
     } else if (x.target.textContent === "RESET") {
       screen.innerHTML = "";
       number = "";
+      hasOperator = false;
+      result = undefined;
     } else if (x.target.textContent === "=") {
       input = screen.innerHTML;
 
