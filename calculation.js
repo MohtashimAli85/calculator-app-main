@@ -22,7 +22,6 @@ btn.forEach((e) => {
       }
       if (result != undefined && !hasOperator) {
         screen.innerHTML = "";
-        console.log('hm');
       }
       screen.innerHTML += x.target.textContent;
       number += x.target.textContent;
