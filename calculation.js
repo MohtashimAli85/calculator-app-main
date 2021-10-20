@@ -111,6 +111,8 @@ btn.forEach((e) => {
   });
 });
 
+
+
 // Listening to KeyPress
 window.addEventListener("keydown", (e) => {
   if (screen.innerHTML.length >= 12) {
@@ -119,7 +121,7 @@ window.addEventListener("keydown", (e) => {
   } else if (Number(e.key)) {
     screen.innerHTML += e.key;
   } else if (e.key === "Enter") {
-    input = screen.innerHTML;
+        input = screen.innerHTML;
     validOperators.forEach((o) => {
       if (input.endsWith(o)) {
         alert("Kindly give proper input ^-^.");
